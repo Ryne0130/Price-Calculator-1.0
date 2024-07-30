@@ -3,15 +3,40 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>PPT 报价工具</title>  
+    <title>PPT 定制报价工具</title>  
+    <script src="script.js" defer></script>  
 </head>  
 <body>  
-    <h1>PPT 制作页数报价</h1>  
-    <label for="slides">请输入PPT页数：</label>  
-    <input type="number" id="slides" min="1" placeholder="例如：10">  
-    <button onclick="calculatePrice()">计算报价</button>  
-    <p>总报价为：<span id="price">0</span>元</p>  
+    <h1>PPT 定制服务报价</h1>  
+    <form id="quoteForm">  
+        <label for="pages">需要多少页PPT：</label>  
+        <input type="number" id="pages" min="1" required>  
   
-    <script src="script.js"></script>  
+        <label for="deadline">什么时候要：</label>  
+        <input type="date" id="deadline" required>  
+  
+        <label for="designLevel">需要哪种设计：</label>  
+        <select id="designLevel" required>  
+            <option value="simple">简单设计</option>  
+            <option value="general">一般设计</option>  
+            <option value="standard">标准设计</option>  
+            <option value="beautiful">精美设计</option>  
+            <option value="high-end">高端设计</option>  
+            <option value="chief">首席设计</option>  
+        </select>  
+  
+        <label>  
+            <input type="checkbox" id="pureContent"> 是否纯内容排版  
+        </label>  
+  
+        <label>  
+            <input type="radio" name="animation" value="static" checked> 静态  
+            <input type="radio" name="animation" value="dynamic"> 动态  
+        </label>  
+  
+        <button type="button" onclick="calculatePrice()">计算报价</button>  
+    </form>  
+  
+    <p>总报价为：<span id="totalPrice">0</span>元</p>  
 </body>  
 </html>
